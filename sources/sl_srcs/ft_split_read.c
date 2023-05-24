@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split_read.c                                    :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:08:48 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 17:47:50 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 21:25:28 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "so_long.h"
 
@@ -92,8 +92,8 @@ char	**ft_split_read(const char *str)
 	buffer = ft_calloc(9999, sizeof(char));
 	if (!buffer)
 		return (NULL);
-	read(fd, buffer, 9998);
-	printf("buffer ->%s\n", buffer);
+	while (read(fd, buffer, 9998);)
+	
 	tab_len = ft_word_number(buffer, '\n');
 	printf("tab_len ->%i\n", tab_len);
 	tab = (char **)malloc(sizeof(char *) * (tab_len + 1));
