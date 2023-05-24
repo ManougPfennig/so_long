@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:08:48 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 11:30:54 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 17:47:50 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	ft_word_number(char *str, char charset)
 	number = 0;
 	while (str[i])
 	{
-		if (ft_sep(str[i + 1], charset) == 1
-			&& ft_sep(str[i], charset) == 0)
+		if (ft_sep(str[i + 1], charset) == 1 \
+		&& ft_sep(str[i], charset) == 0)
 			number++;
 		i++;
 	}
@@ -77,7 +77,7 @@ void	ft_fill_tab(char **split, char *str, char charset)
 	}
 }
 
-char	**ft_split_read(const char *str, char charset)
+char	**ft_split_read(const char *str)
 {
 	int		tab_len;
 	char	**tab;
@@ -89,17 +89,21 @@ char	**ft_split_read(const char *str, char charset)
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	buffer = ft_calloc(999999, sizeof(char));
+	buffer = ft_calloc(9999, sizeof(char));
 	if (!buffer)
 		return (NULL);
-	read(fd, buffer, 999998);
-	tab_len = ft_word_number((char *)buffer, charset);
+	read(fd, buffer, 9998);
+	printf("buffer ->%s\n", buffer);
+	tab_len = ft_word_number(buffer, '\n');
+	printf("tab_len ->%i\n", tab_len);
 	tab = (char **)malloc(sizeof(char *) * (tab_len + 1));
 	if (!tab)
 		return (NULL);
 	tab[tab_len] = 0;
-	ft_fill_tab(tab, (char *)buffer, charset);
+	ft_fill_tab(tab, buffer, '\n');
 	free(buffer);
+	close (fd);
+	print_map(tab);
 	return (tab);
 }
 

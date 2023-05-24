@@ -38,15 +38,15 @@ int	flood_fill(t_data *data)
 	// system("clear");
 	// print_map(tab);
 	// usleep(200);
-// void	print_map(char **tab)
-// {
-// 	int	i;
+void	print_map(char **tab)
+{
+	int	i;
 
-// 	i = 0;
-// 	while (tab[i] != NULL)
-// 	{
-// 		printf("%s\n", tab[i]);
-// 		i++;
-// 	}
-// 	return ;
-// }
+	i = 0;
+	while (tab[i] != NULL)
+	{
+		printf("%s\n", tab[i]);
+		i++;
+	}
+	return ;
+}

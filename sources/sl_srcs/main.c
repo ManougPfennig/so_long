@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:02 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 15:59:39 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 17:08:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	main(int ac, char **av)
 {
 	t_data	data;
-
 	if (arg_parsing(ac, av, &data))
 		exit(EXIT_FAILURE);
 	// data.dir = 1;

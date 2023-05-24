@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 16:36:34 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 17:36:15 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@
 # include <fcntl.h>
 # include <string.h>
 // # include <mlx.h>
-# include "ft_printf.h"
+# include "../ft_printf/ft_printf.h"
 # include <math.h>
 
 # define UI_MAX 4294967295
+# define SIZE_MAX 4294967295
 
 typedef struct	s_data {
 	void			*img;
@@ -59,6 +60,7 @@ int				key_release(int key, t_data *data);
 int				key_pressed(int key, t_data *data);
 int				ft_destroy_windows(t_data *data);
 unsigned int	new_color(t_data *data);
+char			**ft_split_read(const char *str);
 char			*ft_calloc(size_t count, size_t size);
 void			*ft_bzero(void *s, size_t n);
 int				check_map(char *name, t_data *data);
@@ -68,5 +70,6 @@ int				check_walls(char **tab);
 int				flood_fill(t_data *data);
 void			flood_test(t_data *data, char **tab, int x, int y);
 int				check_CEP(char **tab, t_data *data);
+void			print_map(char **tab);
 
 #endif

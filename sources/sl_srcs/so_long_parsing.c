@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:39:36 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 15:14:33 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 17:36:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	arg_parsing(int ac, char **av, t_data *data)
 {
 	if (ac > 2 || ac < 2)
 	{
-		ft_printf("Please start program with \
-		the name of the map as only argument\n");
+		ft_printf("Error\n");
+		ft_printf("Start program with the name of the map as only argument\n");
 		return (1);
 	}
 	if (ac == 2)
@@ -76,7 +76,7 @@ int	check_walls(char **tab)
 	}
 	while (y--)
 	{
-		if (tab[y][0] != '1' || tab[y][ft_strlen[tab[y]] - 1] != '1')
+		if (tab[y][0] != '1' || tab[y][ft_strlen(tab[y]) - 1] != '1')
 			return (ft_printf("Error\nMap is missing walls"));
 	}
 	return (0);
@@ -86,34 +86,41 @@ int	check_CEP(char **tab, t_data *data)
 {
 	int	i;
 	int	y;
-	int	C;
-	int	E;
-	int	P;
+	int	c;
+	int	e;
+	int	p;
 
 	y = 0;
+	c = 0;
+	e = 0;
+	p = 0;
 	while (tab[y] != NULL)
 	{
 		i = 0;
 		while(tab[y][i] != '\0')
 		{
 			if (tab[y][i] == 'E')
-				E++;
-			if (tab[y][i] == 'C')
-				C++;
-			if (tab[y][i] == 'P')
+				e++;
+			else if (tab[y][i] == 'C')
+				c++;
+			else if (tab[y][i] == 'P')
 			{
 				data->start_x = y;
 				data->start_y = i;
-				P++;
+				p++;
 			}
 			i++;
 		}
 		y++;
 	}
-	if (E != 1 || P != 1)
+	printf ("c ->%i\n", c);
+	printf ("e ->%i\n", e);
+	printf ("p ->%i\n", p);
+	print_map(tab);
+	if (e != 1 || p != 1)
 		return (ft_printf("Error\nInvalid amount of Exit or Starting position"));
-	if (C < 1)
+	if (c < 1)
 		return (ft_printf("Error\nMap must have at least one item"));
-	data->items = C;
+	data->items = c;
 	return (0);
 }
