@@ -3,16 +3,18 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 13:49:45 by mapfenni          #+#    #+#              #
-#    Updated: 2023/05/23 16:39:30 by mapfenni         ###   ########.fr        #
+#    Updated: 2023/05/24 14:37:52 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = main.c so_long.c
+SRCS = main.c ./sources/srcs/flood_fill.c ft_function.c ft_putchar.c \
+ft_putnbr_base_len.c ft_putnbr_len.c ft_putstr_len.c ft_split_read.c \
+mlx_functions.c so_long.c so_long_parsing.c so_long_pixel_and_key.c
 
 OBJS = ${SRCS:.c=.o}
 

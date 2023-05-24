@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 13:11:56 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 14:23:41 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ typedef struct	s_data {
 	char			**map;
 	char			**copy_map;
 	int				items;
+	int				start_x;
+	int				start_y;
 }				t_data;
 
 int				main(int ac, char **av);
