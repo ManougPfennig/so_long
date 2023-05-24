@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 16:01:01 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 16:36:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <string.h>
 // # include <mlx.h>
-# include "./sources/ft_printf/ft_printf.h"
+# include "ft_printf.h"
 # include <math.h>
 
 # define UI_MAX 4294967295
