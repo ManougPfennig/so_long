@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 14:23:41 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 14:45:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <string.h>
-# include <mlx.h>
+// # include <mlx.h>
 # include "ft_printf.h"
 # include <math.h>
 

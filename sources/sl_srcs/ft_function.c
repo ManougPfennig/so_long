@@ -66,12 +66,12 @@ char	*ft_calloc(size_t count, size_t size)
 	return (str);
 }
 
-int ft_tablen(char **tab)
+int	ft_tablen(char **tab)
 {
-    int i;
+	int i;
 
-    i = 0;
-    while (tab[i] != NULL)
-        i++;
-    return (i);
+	i = 0;
+	while (tab[i] != NULL)
+		i++;
+	return (i);
 }

@@ -6,15 +6,13 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 13:49:45 by mapfenni          #+#    #+#              #
-#    Updated: 2023/05/24 14:37:52 by marvin           ###   ########.fr        #
+#    Updated: 2023/05/24 14:47:24 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
-SRCS = main.c ./sources/srcs/flood_fill.c ft_function.c ft_putchar.c \
-ft_putnbr_base_len.c ft_putnbr_len.c ft_putstr_len.c ft_split_read.c \
-mlx_functions.c so_long.c so_long_parsing.c so_long_pixel_and_key.c
+SRCS = main.c ./sources/so_long/*.c
 
 OBJS = ${SRCS:.c=.o}
 

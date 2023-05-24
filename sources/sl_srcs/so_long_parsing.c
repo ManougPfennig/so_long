@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:39:36 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 14:28:21 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/24 15:14:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int	check_map(char *name, t_data *data)
 		return (1);
 	if (check_CEP(data->map, data))
 		return (1);
-	if (flood_fill(data->copy_map, 0, 0))
+	if (flood_fill(data))
 		return (1);
 	return (0);
 }
@@ -87,7 +87,8 @@ int	check_CEP(char **tab, t_data *data)
 	int	i;
 	int	y;
 	int	C;
-	int	EP;
+	int	E;
+	int	P;
 
 	y = 0;
 	while (tab[y] != NULL)
@@ -95,20 +96,21 @@ int	check_CEP(char **tab, t_data *data)
 		i = 0;
 		while(tab[y][i] != '\0')
 		{
-			if (tab[y][i] == 'E' || tab[y][i] == 'P')
-				EP++;
+			if (tab[y][i] == 'E')
+				E++;
 			if (tab[y][i] == 'C')
 				C++;
 			if (tab[y][i] == 'P')
 			{
 				data->start_x = y;
 				data->start_y = i;
+				P++;
 			}
 			i++;
 		}
 		y++;
 	}
-	if (EP != 2)
+	if (E != 1 || P != 1)
 		return (ft_printf("Error\nInvalid amount of Exit or Starting position"));
 	if (C < 1)
 		return (ft_printf("Error\nMap must have at least one item"));

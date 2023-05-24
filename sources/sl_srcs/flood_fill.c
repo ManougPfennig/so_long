@@ -12,12 +12,22 @@
 
 #include "so_long.h"
 
-void flood_fill(t_data *data, int x, int y)
+void	flood_test(t_data *data, char **tab, int x, int y)
 {
-    if (x < 0 || y < 0)
-        return ;
-    if (data->copy_map[x] == NULL || data->copy_map[x][y] == '\0')
-        return;
-    if (data->copy_map[x][y] == 'F' || data->copy_map[x][y] == '1')
-        return;
+	if (tab[x] == NULL || tab[x][y] == '\0')
+		return;
+	if (tab[x][y] == 'F' || tab[x][y] == '1')
+		return;
+	if tab[x][y] == 'C'
+		data->items--;
+	tab[x][y] = 'F';
+	flood_test(data, tab, ++x, y);
+	flood_test(data, tab, --x, y);
+	flood_test(data, tab, x, ++y);
+	flood_test(data, tab, x, --y);
+}
+
+int	flood_fill(t_data *data)
+{
+	flood_test(data, data->copy_map, data->start_x, data->start_y);
 }
