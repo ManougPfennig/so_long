@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/23 17:37:04 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/05/24 13:11:56 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ typedef struct	s_data {
 	int				size;
 	unsigned int	color;
 	char			**map;
+	char			**copy_map;
+	int				items;
 }				t_data;
 
 int				main(int ac, char **av);
@@ -57,5 +59,10 @@ unsigned int	new_color(t_data *data);
 char			*ft_calloc(size_t count, size_t size);
 void			*ft_bzero(void *s, size_t n);
 int				check_map(char *name, t_data *data);
+int				ft_strlen(char *str);
+int				ft_tablen(char **tab);
+int				check_walls(char **tab);
+int				flood_fill(t_data *data);
+int				check_CEP(char **tab, t_data *data);
 
 #endif

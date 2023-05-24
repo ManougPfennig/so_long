@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_read.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:08:48 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/23 17:31:11 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/05/24 11:30:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,17 +103,17 @@ char	**ft_split_read(const char *str, char charset)
 	return (tab);
 }
 
-#include <stdio.h>
-int	main(int ac, char **av)
-{
-	int		i;
-	char	**print = ft_split_read(av[1], '\n');
+// #include <stdio.h>
+// int	main(int ac, char **av)
+// {
+// 	int		i;
+// 	char	**print = ft_split_read(av[1], '\n');
 
-	i = 0;
-	while (print[i])
-	{
-		printf("%s\n", print[i]);
-		i++;
-	}
-	(void)ac;
-}
+// 	i = 0;
+// 	while (print[i])
+// 	{
+// 		printf("%s\n", print[i]);
+// 		i++;
+// 	}
+// 	(void)ac;
+// }

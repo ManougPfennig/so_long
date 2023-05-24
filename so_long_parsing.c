@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_parsing.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:39:36 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/23 17:37:59 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/05/24 12:39:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,40 +25,86 @@ int	arg_parsing(int ac, char **av, t_data *data)
 		ft_printf("Checking map...\n", av[1]);
 		return (check_map(av[1], data));
 	}
-	return (1);
+	return (0);
 }
 
 int	check_map(char *name, t_data *data)
 {
+	int		i;
+	int		n;
+	char	*str;
+
+	str = ".ber";
+	i = ft_strlen(name);
+	n = 4;
+	while (n--)
+	{
+		if (name[i - 1] != str[n])
+			return (ft_printf("Error\nWrong map format, please use '.ber'"));
+		i--;
+	}
 	data->map = ft_split_read(name);
-	
+	data->copy_map = ft_split_read(name);
+	if (data->map == NULL || flood_fill(data->copy_map) || check_walls(data->map))
+		return (1);
+	if (check_CEP(data->map, data))
+		return (1);
+	return (0);
 }
 
-int	ft_strcmp(char *str, char *str2)
+int	check_walls(char **tab)
 {
+	int	x;
+	int	y;
 	int	i;
 
-	i = 0;
-	while (str[i] && str2[i])
+	y = 0;
+	x = ft_strlen(tab[0]);
+	while (tab[y] != NULL)
 	{
-		if (str[i] != str2[i])
-			return (0);
-		i++;
+		if (x != ft_strlen(tab[y]))
+			return (ft_printf("Error\nPlease use a rectangular map"));
+		y++;
 	}
-	if (str[i] != str2[i])
-		return (0);
-	return (1);
+	i = 0;
+	while (x--)
+	{
+		if (tab[0][x] != '1' || tab[ft_tablen(tab) - 1][x] != '1')
+			return (ft_printf("Error\nMap is missing walls"));
+	}
+	while (y--)
+	{
+		if (tab[y][0] != '1' || tab[y][ft_strlen[tab[y]] - 1] != '1')
+			return (ft_printf("Error\nMap is missing walls"));
+	}
+	return (0);
 }
 
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
+int	check_CEP(char **tab, t_data *data)
 {
-	char	*dst;
+	int	i;
+	int	y;
+	int	C;
+	int	EP;
 
-	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
-}
-
-int	deal_key(t_data *data)
-{
+	y = 0;
+	while (tab[y] != NULL)
+	{
+		i = 0;
+		while(tab[y][i] != '\0')
+		{
+			if (tab[y][i] == 'E' || tab[y][i] == 'P')
+				EP++;
+			if (tab[y][i] == 'C')
+				C++;
+			i++;
+		}
+		y++;
+	}
+	if (EP != 2)
+		return (ft_printf("Error\nInvalid amount of Exit or Starting position"));
+	if (C < 1)
+		return (ft_printf("Error\nMap must have at least one item"));
+	data->items = C;
 	return (0);
 }
