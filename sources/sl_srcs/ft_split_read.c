@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 17:08:48 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 21:25:28 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/25 19:23:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -21,7 +21,7 @@ int	ft_sep(char c, char charset)
 	return (0);
 }
 
-int	ft_word_number(char *str, char charset)
+int	ft_word_number(char *str, char charset, char charset2)
 {
 	int	i;
 	int	number;
@@ -31,19 +31,19 @@ int	ft_word_number(char *str, char charset)
 	while (str[i])
 	{
 		if (ft_sep(str[i + 1], charset) == 1 \
-		&& ft_sep(str[i], charset) == 0)
+		&& ft_sep(str[i], charset) == 0 && ft_sep(str[i], charset2) == 0)
 			number++;
 		i++;
 	}
 	return (number);
 }
 
-char	*ft_copy_word(char *dest, char *str, char charset)
+char	*ft_copy_word(char *dest, char *str, char charset, char charset2)
 {
 	int	i;
 
 	i = 0;
-	while (ft_sep(str[i], charset) == 0)
+	while (ft_sep(str[i], charset) == 0 && ft_sep(str[i], charset2) == 0)
 	{
 		dest[i] = str[i];
 		i++;
@@ -52,7 +52,7 @@ char	*ft_copy_word(char *dest, char *str, char charset)
 	return (dest);
 }
 
-void	ft_fill_tab(char **split, char *str, char charset)
+void	ft_fill_tab(char **split, char *str, char charset, char charset2)
 {
 	int	count;
 	int	i;
@@ -62,48 +62,42 @@ void	ft_fill_tab(char **split, char *str, char charset)
 	i = 0;
 	while (str[i])
 	{
-		if (ft_sep(str[i], charset) == 1)
+		if (ft_sep(str[i], charset) == 1 && ft_sep(str[i], charset2) == 1)
 			i++;
 		else
 		{
 			j = 0;
-			while (ft_sep(str[i + j], charset) == 0)
+			while (ft_sep(str[i + j], charset) == 0 && ft_sep(str[i + j], charset2) == 0)
 				j++;
 			split[count] = (char *)malloc(sizeof(char) * (j + 1));
-			ft_copy_word(split[count], str + i, charset);
+			ft_copy_word(split[count], str + i, charset, charset2);
 			i = i + j;
 			count++;
 		}
 	}
 }
 
-char	**ft_split_read(const char *str)
+char	**ft_split_read(char *str)
 {
 	int		tab_len;
 	char	**tab;
 	int		fd;
-	char	*buffer;
+	char	*string;
 
 	if (!str)
 		return (NULL);
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
 		return (NULL);
-	buffer = ft_calloc(9999, sizeof(char));
-	if (!buffer)
-		return (NULL);
-	while (read(fd, buffer, 9998);)
-	
-	tab_len = ft_word_number(buffer, '\n');
-	printf("tab_len ->%i\n", tab_len);
+	string = get_string_map(fd);
+	tab_len = ft_word_number(string, 10, 13);
 	tab = (char **)malloc(sizeof(char *) * (tab_len + 1));
 	if (!tab)
 		return (NULL);
 	tab[tab_len] = 0;
-	ft_fill_tab(tab, buffer, '\n');
-	free(buffer);
+	ft_fill_tab(tab, string, 10, 13);
+	// ft_free(string, NULL);
 	close (fd);
-	print_map(tab);
 	return (tab);
 }
 
@@ -111,7 +105,7 @@ char	**ft_split_read(const char *str)
 // int	main(int ac, char **av)
 // {
 // 	int		i;
-// 	char	**print = ft_split_read(av[1], '\n');
+// 	char	**print = ft_split_read(av[1]);
 
 // 	i = 0;
 // 	while (print[i])

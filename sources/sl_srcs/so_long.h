@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 21:22:50 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/25 18:38:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -60,7 +60,7 @@ int				key_release(int key, t_data *data);
 int				key_pressed(int key, t_data *data);
 int				ft_destroy_windows(t_data *data);
 unsigned int	new_color(t_data *data);
-char			**ft_split_read(const char *str);
+char			**ft_split_read(char *str);
 char			*ft_calloc(size_t count, size_t size);
 void			*ft_bzero(void *s, size_t n);
 int				check_map(char *name, t_data *data);
@@ -71,6 +71,8 @@ int				flood_fill(t_data *data);
 void			flood_test(t_data *data, char **tab, int x, int y);
 int				check_CEP(char **tab, t_data *data);
 void			print_map(char **tab);
-char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin(char *s1, char *s2);
+char			*get_string_map(int fd);
+void			ft_free(char *str, char *str2);
 
 #endif
