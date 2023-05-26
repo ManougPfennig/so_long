@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -6,9 +6,9 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:02 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/24 17:08:33 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/26 01:30:20 by marvin           ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "so_long.h"
 
@@ -35,7 +35,7 @@ int	main(int ac, char **av)
 	// data.x = 500;
 	// data.y = 350;
 	// data.img = mlx_new_image(data.mlx, 1000, 700);
-	// data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length, \
+	// data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length,
 	// &data.endian);
 	// my_mlx_pixel_put(&data, data.x, data.y, new_color(&data));
 	// mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
@@ -46,6 +46,7 @@ int	main(int ac, char **av)
 	// // mlx_key_hook(data.win, deal_key, &data);
 	// // generate_triangle(&data);
 	// mlx_loop(data.mlx);
+	ft_free_tab(data.map, NULL);
 	exit(EXIT_SUCCESS);
 }
 

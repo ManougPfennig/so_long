@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:39:36 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/25 19:28:53 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/26 01:54:47 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -17,7 +17,7 @@ int	arg_parsing(int ac, char **av, t_data *data)
 	if (ac > 2 || ac < 2)
 	{
 		ft_printf("Error\n");
-		ft_printf("Start program with the name of the map as only argument\n");
+		ft_printf("Launch with the name of the map file as only argument\n");
 		return (1);
 	}
 	if (ac == 2)
@@ -26,6 +26,22 @@ int	arg_parsing(int ac, char **av, t_data *data)
 		return (check_map(av[1], data));
 	}
 	return (0);
+}
+
+char **ft_copy_map(char **map)
+{
+	int		y;
+	char	**new_map;
+
+	y = 0;
+	new_map = malloc(sizeof(char *) * (ft_tablen(map) + 1));
+	while (map && map[y])
+	{
+		new_map[y] = ft_strdup(map[y]);
+		y++;
+	}
+	new_map[y] = NULL;
+	return (new_map);
 }
 
 int	check_map(char *name, t_data *data)
@@ -44,7 +60,8 @@ int	check_map(char *name, t_data *data)
 		i--;
 	}
 	data->map = ft_split_read(name);
-	data->copy_map = ft_split_read(name);
+	if (data->map)
+		data->copy_map = ft_copy_map(data->map);
 	if (data->map == NULL || check_walls(data->map))
 		return (1);
 	if (check_CEP(data->map, data))
@@ -58,18 +75,15 @@ int	check_walls(char **tab)
 {
 	int	x;
 	int	y;
-	int	i;
 
 	y = 0;
 	x = ft_strlen(tab[0]);
-	print_map(tab);
 	while (tab[y] != NULL)
 	{
 		if (x != ft_strlen(tab[y]))
 			return (ft_printf("Error\nPlease use a rectangular map"));
 		y++;
 	}
-	i = 0;
 	while (x--)
 	{
 		if (tab[0][x] != '1' || tab[ft_tablen(tab) - 1][x] != '1')
@@ -110,14 +124,13 @@ int	check_CEP(char **tab, t_data *data)
 				data->start_y = i;
 				p++;
 			}
+			else if (tab[y][i] != 'E' && tab[y][i] != 'C' && tab[y][i] != 'P'\
+			 && tab[y][i] != '0' && tab[y][i] != '1')
+				return (ft_printf("Error\nUnknown element in map"));
 			i++;
 		}
 		y++;
 	}
-	printf ("c ->%i\n", c);
-	printf ("e ->%i\n", e);
-	printf ("p ->%i\n", p);
-	print_map(tab);
 	if (e != 1 || p != 1)
 		return (ft_printf("Error\nInvalid amount of Exit or Starting position"));
 	if (c < 1)

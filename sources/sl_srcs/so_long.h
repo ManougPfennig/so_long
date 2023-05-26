@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/25 18:38:30 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/26 01:03:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -74,5 +74,7 @@ void			print_map(char **tab);
 char			*ft_strjoin(char *s1, char *s2);
 char			*get_string_map(int fd);
 void			ft_free(char *str, char *str2);
+void			ft_free_tab(char **tab, char **tab2);
+char			*ft_strdup(char *str);
 
 #endif

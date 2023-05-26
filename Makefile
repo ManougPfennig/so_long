@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 13:49:45 by mapfenni          #+#    #+#              #
-#    Updated: 2023/05/25 19:00:29 by marvin           ###   ########.fr        #
+#    Updated: 2023/05/25 23:07:33 by marvin           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
@@ -20,12 +20,14 @@ SRCS = ./sources/sl_srcs/main.c ./sources/sl_srcs/flood_fill.c \
 
 OBJS = ${SRCS:.c=.o}
 
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
+
 # -lm -lmlx -framework OpenGL -framework \
 # 	AppKit
 
 ${NAME}: ${OBJS}
 	make -C ./sources/ft_printf
-	gcc -Wall -Wextra -Werror ${OBJS} ./sources/ft_printf/libftprintf.a -o ${NAME}
+	gcc ${CFLAGS} ${OBJS} ./sources/ft_printf/libftprintf.a -o ${NAME}
 
 all: ${NAME}
 
