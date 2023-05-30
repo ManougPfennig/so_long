@@ -23,7 +23,6 @@
 # include <math.h>
 
 # define UI_MAX 4294967295
-# define SIZE_MAX 4294967295
 
 typedef struct	s_data {
 	void			*img;

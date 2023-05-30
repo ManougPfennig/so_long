@@ -33,7 +33,7 @@ int ft_strlen(char *str)
     int i;
 
     i = 0;
-    while (str[i] != '\0')
+    while (str && str[i] != '\0')
         i++;
     return (i);
 }
@@ -57,7 +57,7 @@ char	*ft_calloc(size_t count, size_t size)
 {
 	void	*str;
 
-	if (count && SIZE_MAX / count < size)
+	if (count && UI_MAX / count < size)
 		return (NULL);
 	str = malloc(count * size);
 	if (!(str))

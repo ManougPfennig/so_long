@@ -68,6 +68,7 @@ int	check_map(char *name, t_data *data)
 		return (1);
 	if (flood_fill(data))
 		return (1);
+	ft_printf("Starting game !\n");
 	return (0);
 }
 
