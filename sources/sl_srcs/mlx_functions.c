@@ -12,13 +12,6 @@
 
 #include "so_long.h"
 
-int	deal_key(t_data *data)
-{
-	(void)data;
-	return (0);
-}
-
-
 void	start_mlx(t_data *data)
 {
 	data->mlx = mlx_init();
@@ -47,6 +40,8 @@ void	create_window(t_data *data, char *name)
 
 void	create_image(t_data *data)
 {
+	data->height = 64;
+	data->width = 64;
 	data->img = mlx_new_image(data->mlx, 1000, 700);
 	if (data->img == NULL)
 	{

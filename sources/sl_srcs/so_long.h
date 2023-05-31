@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/31 11:38:11 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:05:12 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,6 @@ typedef struct	s_data {
 	int				endian;
 	void			*mlx;
 	void			*win;
-	int				x;
-	int				y;
 	int				dir;
 	int				left;
 	int				right;
@@ -48,6 +46,10 @@ typedef struct	s_data {
 	int				items;
 	int				start_x;
 	int				start_y;
+	int				char_x;
+	int				char_y;
+	int				width;
+	int				height;
 	int				usable;
 }				t_data;
 
@@ -55,7 +57,7 @@ int				main(int ac, char **av);
 int				ft_strcmp(char *str, char *str2);
 int				arg_parsing(int ac, char **av, t_data *data);
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
-int				deal_key(t_data *params);
+int				deal_key(t_data *data);
 void			generate_mandelbrot(t_data *data);
 int				key_release(int key, t_data *data);
 int				key_pressed(int key, t_data *data);
