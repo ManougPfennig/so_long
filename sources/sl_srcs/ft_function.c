@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_function.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/24 11:08:03 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/24 11:08:03 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/31 10:15:40 by mapfenni          #+#    #+#             */
+/*   Updated: 2023/05/31 10:15:40 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,14 @@ int	ft_strcmp(char *str, char *str2)
 	return (1);
 }
 
-int ft_strlen(char *str)
+int	ft_strlen(char *str)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (str && str[i] != '\0')
-        i++;
-    return (i);
+	i = 0;
+	while (str && str[i] != '\0')
+		i++;
+	return (i);
 }
 
 void	*ft_bzero(void *s, size_t n)
@@ -68,7 +68,7 @@ char	*ft_calloc(size_t count, size_t size)
 
 int	ft_tablen(char **tab)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (tab[i] != NULL)

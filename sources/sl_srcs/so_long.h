@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/26 01:03:55 by marvin           ###   ########.fr       */
+/*   Updated: 2023/05/31 11:38:11 by mapfenni         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -18,7 +18,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <string.h>
-// # include <mlx.h>
+# include <mlx.h>
 # include "../ft_printf/ft_printf.h"
 # include <math.h>
 
@@ -27,6 +27,8 @@
 typedef struct	s_data {
 	void			*img;
 	char			*addr;
+	int				img_x;
+	int				img_y;
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
@@ -75,5 +77,8 @@ char			*get_string_map(int fd);
 void			ft_free(char *str, char *str2);
 void			ft_free_tab(char **tab, char **tab2);
 char			*ft_strdup(char *str);
+void			create_window(t_data *data, char *name);
+void			start_mlx(t_data *data);
+void			create_image(t_data *data);
 
 #endif

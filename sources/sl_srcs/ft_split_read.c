@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split_read.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/30 17:08:48 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/26 02:00:02 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/31 10:16:07 by mapfenni          #+#    #+#             */
+/*   Updated: 2023/05/31 10:36:45 by mapfenni         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "so_long.h"
 
@@ -30,7 +30,9 @@ int	ft_word_number(char *str, char charset, char charset2)
 	number = 0;
 	while (str[i])
 	{
-		if ((ft_sep(str[i + 1], charset) == 1 || ft_sep(str[i + 1], charset2) == 1) && (ft_sep(str[i], charset) == 0 && ft_sep(str[i], charset2) == 0))
+		if ((ft_sep(str[i + 1], charset) == 1 || ft_sep(str[i + 1], \
+		charset2) == 1) && (ft_sep(str[i], charset) == 0 && \
+		ft_sep(str[i], charset2) == 0))
 			number++;
 		i++;
 	}
@@ -66,7 +68,8 @@ void	ft_fill_tab(char **split, char *str, char charset, char charset2)
 		else
 		{
 			j = 0;
-			while (ft_sep(str[i + j], charset) == 0 && ft_sep(str[i + j], charset2) == 0)
+			while (ft_sep(str[i + j], charset) == 0 && ft_sep(str[i + j], \
+			charset2) == 0)
 				j++;
 			split[count] = (char *)malloc(sizeof(char) * (j + 1));
 			ft_copy_word(split[count], str + i, charset, charset2);

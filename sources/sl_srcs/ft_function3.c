@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_function3.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/25 16:21:58 by marvin            #+#    #+#             */
-/*   Updated: 2023/05/26 01:48:00 by marvin           ###   ########.fr       */
+/*   Created: 2023/05/31 10:15:58 by mapfenni          #+#    #+#             */
+/*   Updated: 2023/05/31 10:15:58 by mapfenni         ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "so_long.h"
 
@@ -42,34 +42,10 @@ void	ft_free(char *str, char *str2)
 	return ;
 }
 
-void	ft_free_tab(char **tab, char **tab2)
+char	*ft_strdup(char *str)
 {
-	int	i;
-
-	i = 0;
-	while (tab && tab[i])
-	{
-		free(tab[i]);
-		i++;
-	}
-	if (tab)
-		free(tab);
-	while (tab2 && tab2[i])
-	{
-		free(tab2[i]);
-		i++;
-	}
-	if (tab2)
-		free(tab2);
-	tab = NULL;
-	tab2 = NULL;
-	return ;
-}
-
-char *ft_strdup(char *str)
-{
-	char *new;
-	int i;
+	char	*new;
+	int		i;
 
 	i = 0;
 	if (!str)
