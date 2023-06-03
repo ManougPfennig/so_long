@@ -29,10 +29,14 @@ void	flood_test(t_data *data, char **tab, int x, int y)
 
 int	flood_fill(t_data *data)
 {
-	flood_test(data, data->copy_map, data->start_x, data->start_y);
-	ft_free_tab(data->copy_map, NULL);
+	int	c;
+	c = data->items;
+	flood_test(data, data->copy_map, data->play_y, data->play_x);
 	if (data->usable == 1 && data->items == 0)
+	{
+		data->items = c;
 		return (0);
+	}
 	return (ft_printf("Error\nMap can not be finished"));
 }
 

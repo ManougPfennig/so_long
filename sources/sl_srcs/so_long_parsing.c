@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:24 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/31 10:16:27 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:19:36 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,8 +121,9 @@ int	check_CEP(char **tab, t_data *data)
 				c++;
 			else if (tab[y][i] == 'P')
 			{
-				data->start_x = y;
-				data->start_y = i;
+				data->play_x = i;
+				data->play_y = y;
+				tab[y][i] = '0';
 				p++;
 			}
 			else if (tab[y][i] != 'E' && tab[y][i] != 'C' && tab[y][i] != 'P'\

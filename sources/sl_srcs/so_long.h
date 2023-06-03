@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 15:25:56 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:31:30 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,12 @@ typedef struct	s_data {
 	char			**map;
 	char			**copy_map;
 	int				items;
-	int				start_x;
-	int				start_y;
-	int				player_x;
-	int				player_y;
+	int				play_x;
+	int				play_y;
 	int				width;
 	int				height;
 	int				usable;
+	int				moves;
 }				t_data;
 
 int				main(int ac, char **av);
@@ -84,5 +83,8 @@ void			start_mlx(t_data *data);
 void			create_image(t_data *data);
 void			put_map(t_data *data);
 void			sprite_to_win(t_data *data, char *file, int x, int y);
+void			put_player(t_data *data);
+void			move_player(t_data *data, int x, int y);
+void			show_victory(t_data *data);
 
 #endif

@@ -6,11 +6,21 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:47:28 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 14:40:39 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:31:26 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	show_victory(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	ft_printf("Congratulations !\n", data->moves);
+	ft_printf("-> You finished in %i moves.\n", data->moves);
+	exit(EXIT_SUCCESS);
+}
 
 int	ft_destroy_windows(t_data *data)
 {

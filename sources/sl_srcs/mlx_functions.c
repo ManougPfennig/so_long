@@ -52,9 +52,3 @@ void	create_image(t_data *data)
 	}
 	return ;
 }
-
-void	sprite_to_win(t_data *data, char *file, int x, int y)
-{
-	data->img = mlx_xpm_file_to_image(data->mlx, file, &data->width, &data->height);
-	mlx_put_image_to_window(data->mlx, data->win, data->img, (x * 64), (y * 64));
-}
