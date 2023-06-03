@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:14 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/31 16:07:02 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 15:18:13 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,10 @@ int	main(int ac, char **av)
 	start_mlx(&data);
 	create_window(&data, av[1]);
 	create_image(&data);
-	printf("%i\n", data.img_x);
-	printf("%i\n", data.img_y);
 	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length,
 	&data.endian);
-	data.img = mlx_xpm_file_to_image(data.mlx, "./sources/img/character0.xpm", &data.width, &data.height);
-	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
-	mlx_put_image_to_window(data.mlx, data.win, data.img, 0, 0);
+	put_map(&data);
+	mlx_put_image_to_window(data.mlx, data.win, data.img, 250, 250);
 	mlx_hook(data.win, 2, 1L << 0, key_pressed, &data);
 	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
 	mlx_loop_hook(data.mlx, deal_key, &data);

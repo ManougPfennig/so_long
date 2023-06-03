@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/31 16:05:12 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 15:25:56 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ typedef struct	s_data {
 	int				items;
 	int				start_x;
 	int				start_y;
-	int				char_x;
-	int				char_y;
+	int				player_x;
+	int				player_y;
 	int				width;
 	int				height;
 	int				usable;
@@ -82,5 +82,7 @@ char			*ft_strdup(char *str);
 void			create_window(t_data *data, char *name);
 void			start_mlx(t_data *data);
 void			create_image(t_data *data);
+void			put_map(t_data *data);
+void			sprite_to_win(t_data *data, char *file, int x, int y);
 
 #endif

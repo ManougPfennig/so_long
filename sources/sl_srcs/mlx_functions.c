@@ -42,7 +42,8 @@ void	create_image(t_data *data)
 {
 	data->height = 64;
 	data->width = 64;
-	data->img = mlx_new_image(data->mlx, 1000, 700);
+	if (data->img == NULL)
+		data->img = mlx_new_image(data->mlx, 1000, 700);
 	if (data->img == NULL)
 	{
 		ft_printf("Error:\nCould not mlx_new_image -> Program interrupted\n");
@@ -50,4 +51,10 @@ void	create_image(t_data *data)
 		exit(EXIT_FAILURE);
 	}
 	return ;
+}
+
+void	sprite_to_win(t_data *data, char *file, int x, int y)
+{
+	data->img = mlx_xpm_file_to_image(data->mlx, file, &data->width, &data->height);
+	mlx_put_image_to_window(data->mlx, data->win, data->img, (x * 64), (y * 64));
 }

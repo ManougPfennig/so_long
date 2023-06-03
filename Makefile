@@ -6,7 +6,7 @@
 #    By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/07 13:49:45 by mapfenni          #+#    #+#              #
-#    Updated: 2023/05/31 12:39:12 by mapfenni         ###   ########.fr        #
+#    Updated: 2023/06/03 15:18:52 by mapfenni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCS = ./sources/sl_srcs/flood_fill.c ./sources/sl_srcs/ft_function.c \
 ./sources/sl_srcs/mlx_key.c ./sources/sl_srcs/free_end.c \
 ./sources/sl_srcs/ft_function2.c ./sources/sl_srcs/ft_split_read.c \
 ./sources/sl_srcs/mlx_functions.c ./sources/sl_srcs/so_long_parsing.c \
-./sources/sl_srcs/mlx_sprite.c
+./sources/sl_srcs/mlx_sprite.c ./sources/sl_srcs/map_to_win.c
 
 OBJS = ${SRCS:.c=.o}
 
