@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:46:43 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 18:28:09 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:47:44 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ void	move_player(t_data *data, int x, int y)
 	{
 		data->play_y = data->play_y + y;
 		data->play_x = data->play_x + x;
+		ft_printf("%i\n", ++data->moves);
 		if (data->items == 0)
 			show_victory(data);
-		ft_printf("%i\n", ++data->moves);
 	}
 	put_map(data);
 }

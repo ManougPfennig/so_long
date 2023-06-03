@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 18:31:30 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 19:25:23 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ typedef struct	s_data {
 	int				height;
 	int				usable;
 	int				moves;
+	int				victory;
 }				t_data;
 
 int				main(int ac, char **av);

@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:07 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/05/31 10:36:45 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/03 18:44:57 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,21 @@ int	ft_word_number(char *str, char charset, char charset2)
 
 	i = 0;
 	number = 0;
+	while(str[i])
+	{
+		if (ft_sep(str[i], charset) == 1 || ft_sep(str[i], charset2) == 1)
+			i++;
+		if (ft_sep(str[i], charset) == 1 || ft_sep(str[i], charset2) == 1)
+			i++;
+		if (ft_sep(str[i], charset) == 1 || ft_sep(str[i], charset2) == 1 || \
+		str[0] == '\n' || str[0] == '\r')
+		{
+			ft_printf("Error\nPlease use a rectangular map");
+			exit(EXIT_FAILURE);
+		}
+		i++;
+	}
+	i = 0;
 	while (str[i])
 	{
 		if ((ft_sep(str[i + 1], charset) == 1 || ft_sep(str[i + 1], \
