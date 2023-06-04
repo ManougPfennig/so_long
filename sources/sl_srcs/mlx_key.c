@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:56:15 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 19:30:05 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/04 20:48:50 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_pressed(int key, t_data *data)
 {
 	if (data->victory)
-		sprite_to_win(data, "./img/end.xpm", data->play_x, data->play_y);
+		sprite_to_win(data, data->img_end, 0, 0);
 	else if (key == 13)
 	{
 		move_player(data, 0, -1);

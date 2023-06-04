@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:14 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 18:21:58 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/04 20:36:21 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	main(int ac, char **av)
 	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length,
 	&data.endian);
 	data.moves = 0;
+	set_imgs(&data);
 	put_map(&data);
 	mlx_hook(data.win, 2, 1L << 0, key_pressed, &data);
 	mlx_hook(data.win, 3, 1L << 1, key_release, &data);

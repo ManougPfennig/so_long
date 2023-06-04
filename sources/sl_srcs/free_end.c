@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:47:28 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 19:25:11 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/04 18:22:37 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	show_victory(t_data *data)
 	int	i;
 
 	i = 0;
-	ft_printf("Congratulations !\n", data->moves);
-	ft_printf("-> You finished in %i moves.\n", data->moves);
+	ft_printf("Congratulations !\n");
+	ft_printf("-> You finished in %i moves.\n", ++data->moves);
 	data->victory = 1;
 }
 
@@ -52,4 +52,13 @@ void	ft_free_tab(char **tab, char **tab2)
 	tab = NULL;
 	tab2 = NULL;
 	return ;
+}
+
+void	ft_malloc_error(t_data *data, char *str, char **tab)
+{
+	ft_free_tab(data->map, data->copy_map);
+	ft_free_tab(tab, NULL);
+	ft_free(str, NULL);
+	ft_printf("Malloc error, program interrupted\n");
+	exit(EXIT_FAILURE);
 }
