@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:47:28 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 16:40:52 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:13:05 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,11 @@ void	ft_malloc_error(t_data *data, char *str, char **tab)
 	ft_free_tab(tab, NULL);
 	ft_free(str, NULL);
 	ft_printf("Malloc error, program interrupted\n");
+	exit(EXIT_FAILURE);
+}
+
+void	print_error(char *str)
+{
+	ft_printf("%s", str);
 	exit(EXIT_FAILURE);
 }

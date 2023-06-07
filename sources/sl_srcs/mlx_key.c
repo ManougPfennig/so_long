@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 16:56:15 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 16:44:27 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:12:16 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,20 @@
 int	key_pressed(int key, t_data *data)
 {
 	if (data->victory)
-		sprite_to_win(data, data->img_end, 0, 0);
+		sprite_to_win(data, 'X', 0, 0);
 	else if (key == 13)
-	{
 		move_player(data, 0, -1);
-	}
 	else if (key == 0)
-	{
 		move_player(data, -1, 0);
-	}
 	else if (key == 1)
-	{
 		move_player(data, 0, 1);
-	}
 	else if (key == 2)
-	{
 		move_player(data, 1, 0);
-	}
 	if (key == 53)
 	{
-		ft_printf("Exiting...\n");
 		mlx_destroy_window(data->mlx, data->win);
 		ft_free_tab(data->map, data->copy_map);
-		exit(EXIT_SUCCESS);
+		print_error("Exiting...\n");
 	}
 	return (0);
 }

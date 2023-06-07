@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:46:47 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 16:51:33 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:07:52 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int				ft_tablen(char **tab);
 int				check_walls(char **tab);
 int				flood_fill(t_data *data);
 void			flood_test(t_data *data, char **tab, int x, int y);
-int				check_cep(char **tab, t_data *data);
+int				check_cep(char **tab, t_data *data, int i, int y);
 void			print_map(char **tab);
 char			*ft_strjoin(char *s1, char *s2);
 char			*get_string_map(int fd);
@@ -90,12 +90,13 @@ void			create_window(t_data *data, char *name);
 void			start_mlx(t_data *data);
 void			create_image(t_data *data);
 void			put_map(t_data *data);
-void			sprite_to_win(t_data *data, void *img, int x, int y);
+void			sprite_to_win(t_data *data, char sign, int x, int y);
 void			put_player(t_data *data);
 void			move_player(t_data *data, int x, int y);
 void			show_victory(t_data *data);
 void			ft_malloc_error(t_data *data, char *str, char **tab);
-char			**compute_minimap(t_data *data);
+char			**compute_minimap(t_data *data, int x, int y, int mix);
 void			set_imgs(t_data *data);
+void			print_error(char *str);
 
 #endif

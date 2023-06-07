@@ -6,15 +6,35 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:46:43 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 16:53:03 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:13:55 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	sprite_to_win(t_data *data, void *img, int x, int y)
+void	sprite_to_win(t_data *data, char sign, int x, int y)
 {
-	mlx_put_image_to_window(data->mlx, data->win, img, (x * 64), (y * 64));
+	if (sign == '1')
+		mlx_put_image_to_window(data->mlx, data->win, data->img_1, \
+		(x * 64), (y * 64));
+	else if (sign == '0' || data->map[y][x] == 'P')
+		mlx_put_image_to_window(data->mlx, data->win, data->img_0, \
+		(x * 64), (y * 64));
+	else if (sign == 'E')
+		mlx_put_image_to_window(data->mlx, data->win, data->img_e, \
+		(x * 64), (y * 64));
+	else if (sign == 'C')
+		mlx_put_image_to_window(data->mlx, data->win, data->img_c, \
+		(x * 64), (y * 64));
+	else if (sign == 'B')
+		mlx_put_image_to_window(data->mlx, data->win, data->img_b, \
+		(x * 64), (y * 64));
+	else if (sign == 'P')
+		mlx_put_image_to_window(data->mlx, data->win, data->img_p, \
+		(x * 64), (y * 64));
+	else if (sign == 'X')
+		mlx_put_image_to_window(data->mlx, data->win, data->img_end, \
+		(x * 64), (y * 64));
 }
 
 void	fill_background(t_data *data)
@@ -28,7 +48,7 @@ void	fill_background(t_data *data)
 		x = 15;
 		while (x--)
 		{
-			sprite_to_win(data, data->img_0, x, y);
+			sprite_to_win(data, '0', x, y);
 		}
 	}
 }
@@ -39,7 +59,7 @@ void	put_map(t_data *data)
 	int		y;
 	char	**minimap;
 
-	minimap = compute_minimap(data);
+	minimap = compute_minimap(data, 0, 0, 0);
 	fill_background(data);
 	y = 0;
 	while (minimap[y] != NULL)
@@ -47,16 +67,7 @@ void	put_map(t_data *data)
 		x = 0;
 		while (minimap[y][x] != '\0')
 		{
-			if (minimap[y][x] == '1')
-				sprite_to_win(data, data->img_1, x, y);
-			else if (minimap[y][x] == '0' || data->map[y][x] == 'P')
-				sprite_to_win(data, data->img_0, x, y);
-			else if (minimap[y][x] == 'E')
-				sprite_to_win(data, data->img_e, x, y);
-			else if (minimap[y][x] == 'C')
-				sprite_to_win(data, data->img_c, x, y);
-			else if (minimap[y][x] == 'B')
-				sprite_to_win(data, data->img_b, x, y);
+			sprite_to_win(data, minimap[y][x], x, y);
 			x++;
 		}
 		y++;
@@ -70,16 +81,16 @@ void	put_player(t_data *data)
 	if (ft_strlen(data->map[0]) >= 15 || ft_tablen(data->map) >= 11)
 	{
 		if (data->play_x < 7 && data->play_y < 5)
-			sprite_to_win(data, data->img_p, data->play_x, data->play_y);
+			sprite_to_win(data, 'P', data->play_x, data->play_y);
 		else if (data->play_x < 7)
-			sprite_to_win(data, data->img_p, data->play_x, 5);
+			sprite_to_win(data, 'P', data->play_x, 5);
 		else if (data->play_y < 5)
-			sprite_to_win(data, data->img_p, 7, data->play_y);
+			sprite_to_win(data, 'P', 7, data->play_y);
 		else
-			sprite_to_win(data, data->img_p, 7, 5);
+			sprite_to_win(data, 'P', 7, 5);
 		return ;
 	}
-	sprite_to_win(data, data->img_p, data->play_x, data->play_y);
+	sprite_to_win(data, 'P', data->play_x, data->play_y);
 }
 
 void	move_player(t_data *data, int x, int y)

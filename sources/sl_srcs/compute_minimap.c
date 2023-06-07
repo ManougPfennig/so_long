@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:03:54 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 16:39:53 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 17:10:32 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,15 @@ char	**make_minimap(t_data *data)
 	while (++y < ysize)
 	{
 		tab[i] = ft_calloc((xsize + 1), sizeof(char));
-		if (!tab[i])
+		if (++i && !tab[i])
 			ft_malloc_error(data, NULL, tab);
-		i++;
 	}
 	tab[ysize] = NULL;
 	return (tab);
 }
 
-char	**compute_minimap(t_data *data)
+char	**compute_minimap(t_data *data, int x, int y, int mix)
 {
-	int		x;
-	int		y;
-	int		mix;
 	int		miy;
 	char	**tab;
 
