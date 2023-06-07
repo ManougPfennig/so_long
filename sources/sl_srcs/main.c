@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:14 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/04 21:04:06 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:42:00 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(int ac, char **av)
 	start_mlx(&data);
 	create_window(&data, "so_long");
 	create_image(&data);
-	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, &data.line_length,
-	&data.endian);
+	data.addr = mlx_get_data_addr(data.img, &data.bits_per_pixel, \
+	&data.line_length, &data.endian);
 	data.moves = 0;
 	set_imgs(&data);
 	put_map(&data);
@@ -35,5 +35,3 @@ int	main(int ac, char **av)
 	ft_free_tab(data.map, data.copy_map);
 	exit(EXIT_SUCCESS);
 }
-
-

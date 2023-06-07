@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 16:40:40 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/04 20:48:36 by mapfenni         ###   ########.fr       */
+/*   Created: 2023/06/07 16:46:47 by mapfenni          #+#    #+#             */
+/*   Updated: 2023/06/07 16:51:33 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@
 
 # define UI_MAX 4294967295
 
-typedef struct	s_data {
+typedef struct s_data {
 	void			*img;
 	void			*img_0;
 	void			*img_1;
-	void			*img_P;
-	void			*img_C;
-	void			*img_B;
-	void			*img_E;
+	void			*img_p;
+	void			*img_c;
+	void			*img_b;
+	void			*img_e;
 	void			*img_end;
 	char			*addr;
 	int				img_x;
@@ -79,7 +79,7 @@ int				ft_tablen(char **tab);
 int				check_walls(char **tab);
 int				flood_fill(t_data *data);
 void			flood_test(t_data *data, char **tab, int x, int y);
-int				check_CEP(char **tab, t_data *data);
+int				check_cep(char **tab, t_data *data);
 void			print_map(char **tab);
 char			*ft_strjoin(char *s1, char *s2);
 char			*get_string_map(int fd);

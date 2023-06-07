@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 14:46:43 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/04 20:52:29 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:53:03 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	fill_background(t_data *data)
 {
 	int	x;
 	int	y;
-	
+
 	y = 11;
 	while (y--)
 	{
@@ -52,11 +52,11 @@ void	put_map(t_data *data)
 			else if (minimap[y][x] == '0' || data->map[y][x] == 'P')
 				sprite_to_win(data, data->img_0, x, y);
 			else if (minimap[y][x] == 'E')
-				sprite_to_win(data, data->img_E, x, y);
+				sprite_to_win(data, data->img_e, x, y);
 			else if (minimap[y][x] == 'C')
-				sprite_to_win(data, data->img_C, x, y);
+				sprite_to_win(data, data->img_c, x, y);
 			else if (minimap[y][x] == 'B')
-				sprite_to_win(data, data->img_B, x, y);
+				sprite_to_win(data, data->img_b, x, y);
 			x++;
 		}
 		y++;
@@ -67,31 +67,27 @@ void	put_map(t_data *data)
 
 void	put_player(t_data *data)
 {
-	if (ft_strlen(data->map[0]) > 15 || ft_tablen(data->map) > 11)
+	if (ft_strlen(data->map[0]) >= 15 || ft_tablen(data->map) >= 11)
 	{
 		if (data->play_x < 7 && data->play_y < 5)
-			sprite_to_win(data, data->img_P, data->play_x, data->play_y);
+			sprite_to_win(data, data->img_p, data->play_x, data->play_y);
 		else if (data->play_x < 7)
-			sprite_to_win(data, data->img_P, data->play_x, 5);
+			sprite_to_win(data, data->img_p, data->play_x, 5);
 		else if (data->play_y < 5)
-			sprite_to_win(data, data->img_P, 7, data->play_y);
+			sprite_to_win(data, data->img_p, 7, data->play_y);
 		else
-			sprite_to_win(data, data->img_P, 7, 5);
+			sprite_to_win(data, data->img_p, 7, 5);
 		return ;
 	}
-	sprite_to_win(data, data->img_P, data->play_x, data->play_y);
+	sprite_to_win(data, data->img_p, data->play_x, data->play_y);
 }
 
 void	move_player(t_data *data, int x, int y)
 {
 	if (data->map[data->play_y + y][data->play_x + x] == '1')
 		return ;
-	else if (data->map[data->play_y + y][data->play_x + x] == '0')
-	{
-		data->play_y = data->play_y + y;
-		data->play_x = data->play_x + x;
-	}
-	else if (data->map[data->play_y + y][data->play_x + x] == 'B')
+	else if (data->map[data->play_y + y][data->play_x + x] == '0' \
+	|| data->map[data->play_y + y][data->play_x + x] == 'B')
 	{
 		data->play_y = data->play_y + y;
 		data->play_x = data->play_x + x;

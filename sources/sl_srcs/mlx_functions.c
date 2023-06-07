@@ -14,13 +14,20 @@
 
 void	set_imgs(t_data *data)
 {
-	data->img_0 = mlx_xpm_file_to_image(data->mlx, "./img/floor.xpm", &data->width, &data->height);
-	data->img_1 = mlx_xpm_file_to_image(data->mlx, "./img/wall.xpm", &data->width, &data->height);
-	data->img_B = mlx_xpm_file_to_image(data->mlx, "./img/broken.xpm", &data->width, &data->height);
-	data->img_C = mlx_xpm_file_to_image(data->mlx, "./img/house.xpm", &data->width, &data->height);
-	data->img_E = mlx_xpm_file_to_image(data->mlx, "./img/exit.xpm", &data->width, &data->height);
-	data->img_P = mlx_xpm_file_to_image(data->mlx, "./img/player.xpm", &data->width, &data->height);
-	data->img_end = mlx_xpm_file_to_image(data->mlx, "./img/end.xpm", &data->width, &data->height);
+	data->img_0 = mlx_xpm_file_to_image(data->mlx, "./img/floor.xpm", \
+	&data->width, &data->height);
+	data->img_1 = mlx_xpm_file_to_image(data->mlx, "./img/wall.xpm", \
+	&data->width, &data->height);
+	data->img_b = mlx_xpm_file_to_image(data->mlx, "./img/broken.xpm", \
+	&data->width, &data->height);
+	data->img_c = mlx_xpm_file_to_image(data->mlx, "./img/house.xpm", \
+	&data->width, &data->height);
+	data->img_e = mlx_xpm_file_to_image(data->mlx, "./img/exit.xpm", \
+	&data->width, &data->height);
+	data->img_p = mlx_xpm_file_to_image(data->mlx, "./img/player.xpm", \
+	&data->width, &data->height);
+	data->img_end = mlx_xpm_file_to_image(data->mlx, "./img/end.xpm", \
+	&data->width, &data->height);
 }
 
 void	start_mlx(t_data *data)

@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:03:54 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/04 20:03:29 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:39:53 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	**make_minimap(t_data *data)
 	char	**tab;
 	int		ysize;
 	int		xsize;
-	
+
 	ysize = ft_tablen(data->map);
 	xsize = ft_strlen(data->map[0]);
 	if (xsize > 16)
@@ -58,10 +58,10 @@ char	**compute_minimap(t_data *data)
 	while (data->map[y] && miy < 11)
 	{
 		mix = 0;
-		x = data->play_x - 7;
+			x = data->play_x - 7;
 		if (x < 0)
 			x = 0;
-		while(data->map[y][x] && mix < 15)
+		while (data->map[y][x] && mix < 15)
 		{
 			tab[miy][mix] = data->map[y][x];
 			x++;

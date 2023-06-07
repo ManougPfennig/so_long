@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:07 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 18:44:57 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:41:07 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,8 @@ int	ft_word_number(char *str, char charset, char charset2)
 
 	i = 0;
 	number = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if (ft_sep(str[i], charset) == 1 || ft_sep(str[i], charset2) == 1)
-			i++;
 		if (ft_sep(str[i], charset) == 1 || ft_sep(str[i], charset2) == 1)
 			i++;
 		if (ft_sep(str[i], charset) == 1 || ft_sep(str[i], charset2) == 1 || \
@@ -118,21 +116,5 @@ char	**ft_split_read(char *str)
 	ft_fill_tab(tab, string, '\n', '\r');
 	ft_free(string, NULL);
 	close (fd);
-	print_map(tab);
 	return (tab);
 }
-
-// #include <stdio.h>
-// int	main(int ac, char **av)
-// {
-// 	int		i;
-// 	char	**print = ft_split_read(av[1]);
-
-// 	i = 0;
-// 	while (print[i])
-// 	{
-// 		printf("%s\n", print[i]);
-// 		i++;
-// 	}
-// 	(void)ac;
-// }

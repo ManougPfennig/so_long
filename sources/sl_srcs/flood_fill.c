@@ -30,6 +30,7 @@ void	flood_test(t_data *data, char **tab, int x, int y)
 int	flood_fill(t_data *data)
 {
 	int	c;
+
 	c = data->items;
 	flood_test(data, data->copy_map, data->play_y, data->play_x);
 	if (data->usable == 1 && data->items == 0)

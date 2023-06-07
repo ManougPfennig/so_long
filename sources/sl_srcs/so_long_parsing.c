@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:24 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/03 18:19:36 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 16:52:36 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	arg_parsing(int ac, char **av, t_data *data)
 	return (0);
 }
 
-char **ft_copy_map(char **map)
+char	**ft_copy_map(char **map)
 {
 	int		y;
 	char	**new_map;
@@ -64,7 +64,7 @@ int	check_map(char *name, t_data *data)
 		data->copy_map = ft_copy_map(data->map);
 	if (data->map == NULL || check_walls(data->map))
 		return (1);
-	if (check_CEP(data->map, data))
+	if (check_cep(data->map, data))
 		return (1);
 	if (flood_fill(data))
 		return (1);
@@ -98,7 +98,7 @@ int	check_walls(char **tab)
 	return (0);
 }
 
-int	check_CEP(char **tab, t_data *data)
+int	check_cep(char **tab, t_data *data)
 {
 	int	i;
 	int	y;
@@ -113,7 +113,7 @@ int	check_CEP(char **tab, t_data *data)
 	while (tab[y] != NULL)
 	{
 		i = 0;
-		while(tab[y][i] != '\0')
+		while (tab[y][i] != '\0')
 		{
 			if (tab[y][i] == 'E')
 				e++;
@@ -126,8 +126,8 @@ int	check_CEP(char **tab, t_data *data)
 				tab[y][i] = '0';
 				p++;
 			}
-			else if (tab[y][i] != 'E' && tab[y][i] != 'C' && tab[y][i] != 'P'\
-			 && tab[y][i] != '0' && tab[y][i] != '1')
+			else if (tab[y][i] != 'E' && tab[y][i] != 'C' && tab[y][i] != 'P' \
+			&& tab[y][i] != '0' && tab[y][i] != '1')
 				return (ft_printf("Error\nUnknown element in map"));
 			i++;
 		}
