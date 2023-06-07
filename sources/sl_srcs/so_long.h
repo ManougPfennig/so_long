@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:46:47 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 18:07:52 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:38:33 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,5 +98,7 @@ void			ft_malloc_error(t_data *data, char *str, char **tab);
 char			**compute_minimap(t_data *data, int x, int y, int mix);
 void			set_imgs(t_data *data);
 void			print_error(char *str);
+int				ecp_values(int e, int c, int p);
+int				is_ecp(char sign);
 
 #endif

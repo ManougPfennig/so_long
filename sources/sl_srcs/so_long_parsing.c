@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 10:16:24 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 17:57:00 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 18:39:21 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	check_map(char *name, t_data *data)
 		data->copy_map = ft_copy_map(data->map);
 	if (data->map == NULL || check_walls(data->map))
 		return (1);
-	if (check_cep(data->map, data, 0, 0))
+	if (check_cep(data->map, data, 0, -1))
 		return (1);
 	if (flood_fill(data))
 		return (1);
@@ -100,39 +100,29 @@ int	check_walls(char **tab)
 
 int	check_cep(char **tab, t_data *data, int i, int y)
 {
-	int	c;
 	int	e;
 	int	p;
 
-	c = 0;
 	e = 0;
 	p = 0;
-	while (tab[y] != NULL)
+	while (tab[++y] != NULL)
 	{
-		i = 0;
-		while (tab[y][i] != '\0')
+		i = -1;
+		while (tab[y][++i] != '\0')
 		{
 			if (tab[y][i] == 'E')
 				e++;
 			else if (tab[y][i] == 'C')
-				c++;
+				data->items++;
 			else if (tab[y][i] == 'P' && ++p)
 			{
 				data->play_x = i;
 				data->play_y = y;
 				tab[y][i] = '0';
 			}
-			else if (tab[y][i] != 'E' && tab[y][i] != 'C' && tab[y][i] != 'P' \
-			&& tab[y][i] != '0' && tab[y][i] != '1')
+			else if (!is_ecp(tab[y][i]))
 				return (ft_printf("Error\nUnknown element in map"));
-			i++;
 		}
-		y++;
 	}
-	if (e != 1 || p != 1)
-		return (ft_printf("Error\nInvalid amount of Exit or Starting position"));
-	if (c < 1)
-		return (ft_printf("Error\nMap must have at least one item"));
-	data->items = c;
-	return (0);
+	return (ecp_values(e, data->items, p));
 }
