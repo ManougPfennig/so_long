@@ -6,16 +6,14 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:03:54 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 17:10:32 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:07:35 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**make_minimap(t_data *data)
+char	**make_minimap(t_data *data, int i, int y)
 {
-	int		i;
-	int		y;
 	char	**tab;
 	int		ysize;
 	int		xsize;
@@ -26,16 +24,15 @@ char	**make_minimap(t_data *data)
 		xsize = 16;
 	if (ysize > 12)
 		ysize = 12;
-	i = 0;
-	y = -1;
 	tab = malloc((ysize + 1) * sizeof(char *));
-	if (!tab)
+	if (tab == NULL)
 		ft_malloc_error(data, NULL, tab);
 	while (++y < ysize)
 	{
 		tab[i] = ft_calloc((xsize + 1), sizeof(char));
-		if (++i && !tab[i])
+		if (!tab[i])
 			ft_malloc_error(data, NULL, tab);
+		i++;
 	}
 	tab[ysize] = NULL;
 	return (tab);
@@ -46,7 +43,7 @@ char	**compute_minimap(t_data *data, int x, int y, int mix)
 	int		miy;
 	char	**tab;
 
-	tab = make_minimap(data);
+	tab = make_minimap(data, 0, -1);
 	y = data->play_y - 5;
 	if (y < 0)
 		y = 0;

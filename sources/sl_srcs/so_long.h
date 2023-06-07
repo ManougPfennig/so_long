@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:46:47 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 18:38:33 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/07 19:09:31 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,7 @@ typedef struct s_data {
 int				main(int ac, char **av);
 int				ft_strcmp(char *str, char *str2);
 int				arg_parsing(int ac, char **av, t_data *data);
-void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int				deal_key(t_data *data);
-void			generate_mandelbrot(t_data *data);
 int				key_release(int key, t_data *data);
 int				key_pressed(int key, t_data *data);
 int				ft_destroy_windows(t_data *data);
