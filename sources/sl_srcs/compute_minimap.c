@@ -6,7 +6,7 @@
 /*   By: mapfenni <mapfenni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 16:03:54 by mapfenni          #+#    #+#             */
-/*   Updated: 2023/06/07 19:07:35 by mapfenni         ###   ########.fr       */
+/*   Updated: 2023/06/29 16:00:33 by mapfenni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ char	**compute_minimap(t_data *data, int x, int y, int mix)
 	while (data->map[y] && miy < 11)
 	{
 		mix = 0;
-			x = data->play_x - 7;
+		x = data->play_x - 7;
 		if (x < 0)
 			x = 0;
 		while (data->map[y][x] && mix < 15)

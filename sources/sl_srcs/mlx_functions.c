@@ -12,22 +12,26 @@
 
 #include "so_long.h"
 
+void	*ft_xpm_to_img(t_data *data, char *path)
+{
+	void	*ptr;
+
+	ptr = mlx_xpm_file_to_image(data->mlx, path, &data->width, &data->height);
+	if (!ptr)
+		print_error("Error\nSprite not found\nTry executing game from within \
+it's directory");
+	return (ptr);
+}
+
 void	set_imgs(t_data *data)
 {
-	data->img_0 = mlx_xpm_file_to_image(data->mlx, "./img/floor.xpm", \
-	&data->width, &data->height);
-	data->img_1 = mlx_xpm_file_to_image(data->mlx, "./img/wall.xpm", \
-	&data->width, &data->height);
-	data->img_b = mlx_xpm_file_to_image(data->mlx, "./img/broken.xpm", \
-	&data->width, &data->height);
-	data->img_c = mlx_xpm_file_to_image(data->mlx, "./img/house.xpm", \
-	&data->width, &data->height);
-	data->img_e = mlx_xpm_file_to_image(data->mlx, "./img/exit.xpm", \
-	&data->width, &data->height);
-	data->img_p = mlx_xpm_file_to_image(data->mlx, "./img/player.xpm", \
-	&data->width, &data->height);
-	data->img_end = mlx_xpm_file_to_image(data->mlx, "./img/end.xpm", \
-	&data->width, &data->height);
+	data->img_0 = ft_xpm_to_img(data, "./img/floor.xpm");
+	data->img_1 = ft_xpm_to_img(data, "./img/wall.xpm");
+	data->img_b = ft_xpm_to_img(data, "./img/broken.xpm");
+	data->img_c = ft_xpm_to_img(data, "./img/house.xpm");
+	data->img_e = ft_xpm_to_img(data, "./img/exit.xpm");
+	data->img_p = ft_xpm_to_img(data, "./img/player.xpm");
+	data->img_end = ft_xpm_to_img(data, "./img/end.xpm");
 }
 
 void	start_mlx(t_data *data)
